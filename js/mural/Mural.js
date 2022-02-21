@@ -6,6 +6,9 @@ const Mural = (function (_render, Filtro) {
     Filtro.on('filtrado', render);
 
     function adiciona(cartao) {
+        if (!logado) {
+            return false;
+        }
         cartoes.push(cartao);
         cartao.on('mudanca.**', render);
         cartao.on('remocao', () => {
